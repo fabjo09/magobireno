@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>80</title>
+  <script src="jquery.min.js"></script>
+
+ 	<style type="text/css">
+
+  @keyframes muovi {
+    0% {transform: rotate(0deg);}
+    25% {transform: rotate(7.5deg);}
+    50% {transform: rotate(15deg);}
+    75% {transform: rotate(7.5deg);}
+    100% {transform: rotate(0deg);}
+  }
+
+  @keyframes scala {
+    0% {transform: scale(1);}
+    100% {transform: scale(0.95);}
+  }
+
+  @font-face {
+    font-family: Lato;
+    src: url(font/Lato-Regular.ttf);
+}
+
+  @font-face {
+    font-family: Berkshire;
+    src: url(font/BerkshireSwash-Regular.ttf);
+  }
+
+body{
+  margin: 0;
+  background-image: url("assets/simple-dashed.png");
+              background-color: #02000a;
+}
+
+#universe {
+  background-image: url("assets/Cave4.jpg");
+  height: 750px;
+  width: 1300px;
+  margin: 0 auto;
+}
+
+.bolla {
+  position: absolute;
+  background-image: url("assets/mora.png");
+  background-size: cover;
+  background-position: center;
+  height:70px;
+  width:70px;
+  border: 1px solid white;
+  border-radius: 50%;
+  box-shadow: inset 0px 0px 50px 0px rgba(255,255,255,0.40);
+}
+
+#punteggio {
+  font-family: 'Lato';
+  font-size: 50pt;
+  text-align: center;
+  color: #ffffff;
+  position: absolute;
+  text-shadow: 0 0 3px #ffffff;
+  margin-top: 10px;
+  margin-left: 100px;
+}
+
+#bollaPunti {
+  position: absolute;
+  margin:10px;
+  background-image: url("assets/mora.png");
+  background-size: cover;
+  background-position: center;
+  height:80px;
+  width:80px;
+  -webkit-filter: drop-shadow(2px 5px 15px #ffffff);
+  filter: drop-shadow(2px 5px 15px #ffffff);
+}
+
+#cestello {
+  position: absolute;
+  margin-top: 400px;
+  margin-left: 475px;
+  width: 350px;
+  height: 350px;
+  z-index: 2;
+  background-image: url("assets/cestelloRender.png");
+  background-position: center;
+  background-size: cover;
+}
+
+#cestelloPieno{
+  position: absolute;
+  margin-top: 153px;
+  margin-left: 475px;
+  width: 350px;
+  height: 350px;
+  z-index: 3;
+  display:none;
+  background-image: url("assets/cestello_fine.png");
+  background-position: center;
+  background-size: cover;
+}
+
+#cestelloPieno:hover {
+  filter: drop-shadow(0px 1px 1px white);
+  animation: scala 0.5s linear infinite alternate;
+}
+
+#ritenta{
+  position: absolute;
+  margin-top: 200px;
+  margin-left: 475px;
+  font-family: 'Berkshire';
+  font-size: 70pt;
+  color: rgb(254, 246, 183);
+  z-index: 3;
+  display: none;
+}
+
+#ritenta:hover{
+  filter: drop-shadow(0px 2px 2px white);
+  animation: scala 0.5s linear infinite alternate;
+}
+
+#home {
+  background-image: url("assets/home.png");
+  height:80px;
+  width: 80px;
+  background-size: cover;
+  background-position: center;;
+  position: absolute;
+  margin-top: 625px;
+  margin-left: 1170px;
+  animation: muovi 0.45s linear infinite;
+  animation-play-state: paused;
+}
+#home:hover {
+  animation-play-state: running;
+  filter: drop-shadow(0px 3px 3px white);
+}
+ 	</style>
+</head>
+
+<body>
+  <div id="universe">
+    <div id="bollaPunti"></div>
+    <div id="punteggio"></div>
+    <div id="cestello"></div>
+    <a href="100.html"><div id="cestelloPieno"></div></a>
+    <a href="90.html"><div id="ritenta">Ritenta!</div></a>
+    <a href="index.html"><div id="home"></div></a>
+  </div>
+  <script>
+
+  	var creaBolla;
+    var punti = 0;
+    var bolleCadute = 0;
+
+vincita = function() {
+  $("#cestelloPieno").css({
+    "display":"block",
+  })
+  $("#cestello").css({
+    "display":"none",
+  })
+  $(".bolla").css({
+    "display":"none",
+  })
+}
+
+perdita = function() {
+  $("#cestello").css({
+    "display":"none",
+  })
+  $(".bolla").css({
+    "display":"none",
+  })
+  $("#ritenta").css({
+    "display":"block",
+  })
+}
+
+creaBolla = function() {
+  var z=1;
+  var k=1;
+  var bolla, step, vx, vy, x, y;
+  bolla = $("<div>").addClass("bolla");
+  vx = Math.random() * 0.8+0.5;
+  vy = Math.random() * 0.8+0.5;
+  x = Math.random() * 1000;
+  y = Math.random() * 300;
+
+  step = function() {
+    x += vx;
+    y += vy;
+    if(x>1120) vx=-vx;
+    if(x<100) vx = Math.random()*0.8+0.5;
+    if(y<80) vy= Math.random()*0.8+0.5;
+    if(y>340 && k==1) vy=-vy;
+    if(y>665 && k==0 && z==0) {vy=0; bolleCadute = bolleCadute+1; z=1};
+    if(y>665 && x>465 && x<770 && k==0) {punti = punti+1; k=1};
+    document.getElementById("punteggio").innerHTML = punti;
+    if(punti>4) {vincita();};
+    if(bolleCadute>6 && punti<5) {perdita();}
+
+    //if(punti>4)  alert("hai vinto!");                                 alert
+
+    return bolla.css({
+      "margin-top": y+"px",
+      "margin-left": x+"px"
+    });
+  };
+  bolla.click(function() {
+    z=0;
+    k=0; //mi serve per farla cadere giù
+    vx = 0;
+    return vy = 2;
+    });
+  bolla.click(function() {
+    $(this).css({
+      "border":"none",
+      "box-shadow":"none"
+    })
+  });
+
+  bolla.click(function(){
+    $(this).fadeOut(10000);
+});
+
+  $("#universe").append(bolla);
+  return setInterval(step, 10);
+
+};
+
+
+var creazione = setInterval(function(){creaBolla()}, 2000);
+setTimeout(function() { clearInterval(creazione); }, 14000); //dopo tot smette//
+
+  </script>
+
+
+
+</body>
+</html>

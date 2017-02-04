@@ -1,0 +1,109 @@
+<html>
+    <head>
+    <meta charset="UTF-8">
+        <script src="jquery.min.js"></script>
+
+
+        <style>
+        @font-face {
+        font-family: Lato;
+        src: url(font/Lato-Regular.ttf);
+    }
+
+      @font-face {
+        font-family: Berkshire;
+        src: url(font/BerkshireSwash-Regular.ttf);
+      }
+
+        @keyframes muovi {
+          0% {transform: rotate(0deg);}
+          25% {transform: rotate(7.5deg);}
+          50% {transform: rotate(15deg);}
+          75% {transform: rotate(7.5deg);}
+          100% {transform: rotate(0deg);}
+        }
+
+        body {margin: 0;
+          background-image: url("assets/simple-dashed.png");
+              background-color: #02000a;
+              }
+
+        #background {
+          background-image: url("assets/scena100.jpg");
+          width: 1300px;
+          height: 750px;
+          margin:0 auto;
+        }
+
+
+
+        #container {
+          margin-top:20px;
+          margin-left:20px;
+          height: auto;
+          width:450px;
+          position: absolute;
+          background-color: rgba(255, 255, 255, 0.9);
+          padding: 20px;
+          border-radius: 25px;
+        }
+
+        #text{
+          color: black;
+          font-size: 20;
+          font-family: Lato;
+        }
+
+        #home {
+          background-image: url("assets/home.png");
+          height:80px;
+          width: 80px;
+          background-size: cover;
+          background-position: center;;
+          position: absolute;
+          margin-top: 625px;
+          margin-left: 1170px;
+          animation: muovi 0.45s linear infinite;
+          animation-play-state: paused;
+        }
+
+        #home:hover {
+          animation-play-state: running;
+          filter: drop-shadow(0px 3px 3px white);
+        }
+
+        #change{
+          font-family: Lato-bold;
+          text-decoration: none;
+          color:black;
+        }
+        #change:hover{
+          filter: drop-shadow(0px 0px 3px #28225C);
+          color:white;
+        }
+
+
+
+        </style>
+    </head>
+
+    <body>
+      <div id="background">
+
+      <div id="container">
+        <div id="text">
+          Paolo e Graziella felici con il loro cestello pieno di more poterono
+        prendere la strada di casa <b>lasciando nella grotta il loro nuovo amico.</b>
+        <a id="change" href="110.html"> >></a></div>
+
+      </div>
+      <a href="index.html"><div id="home"></div></a>
+      </div>
+    <script>
+
+
+
+    </script>
+
+    </body>
+</html>

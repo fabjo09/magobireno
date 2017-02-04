@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>75</title>
+	<script src="jquery.min.js"></script>
+	<style type="text/css">
+
+		@font-face {
+    		font-family: Lato;
+    		src: url(font/Lato-Regular.ttf);
+		}
+
+  		@font-face {
+    		font-family: Berkshire;
+    		src: url(font/BerkshireSwash-Regular.ttf);
+  		}
+
+  		@keyframes scala {
+    		0% {transform: scale(1);}
+    		100% {transform: scale(0.95);}
+  		}
+  		@keyframes muovi {
+          0% {transform: rotate(0deg);}
+          25% {transform: rotate(7.5deg);}
+          50% {transform: rotate(15deg);}
+          75% {transform: rotate(7.5deg);}
+          100% {transform: rotate(0deg);}
+        }
+
+		body {
+			margin: 0px;
+			background-image: url("assets/simple-dashed.png");
+              background-color: #02000a;
+		}
+		#universe {
+  			background-image: url("assets/Cave4.jpg");
+  			height: 750px;
+  			width: 1300px;
+  			margin:0 auto;
+  			text-align: center;
+		}
+		#spiegazione{
+			color: rgb(254, 246, 183);
+			margin:0px;
+			margin-left: 370px;
+			position: absolute;
+		}
+
+		h1 {
+			font-family: Berkshire;
+			font-size: 50pt;
+			margin: 0px;
+			padding-top: 50px;
+		}
+		p {
+			font-family: Lato;
+			font-size: 20pt;
+		}
+		a {
+			text-decoration: none;
+			color: rgb(254, 246, 183);
+		}
+
+		#inizia{
+			margin:0px;
+			padding: 20px;
+		}
+		#inizia:hover {
+			filter: drop-shadow(0px 2px 2px white);
+  			animation: scala 0.5s linear infinite alternate;
+  			cursor:pointer;
+		}
+
+		#home {
+          background-image: url("assets/home.png");
+          height:80px;
+          width: 80px;
+          background-size: cover;
+          background-position: center;;
+          position: absolute;
+          margin-top: 625px;
+          margin-left: 1170px;
+          animation: muovi 0.45s linear infinite;
+          animation-play-state: paused;
+        }
+
+        #home:hover {
+          animation-play-state: running;
+          filter: drop-shadow(0px 3px 3px white);
+        }
+
+	</style>
+</head>
+<body>
+
+	<div id="universe">
+		<div id="spiegazione"><h1>Acchiappa la mora!</h1>
+		<p>Aiuta Paolo e Graziella a raccogliere<br>le more magiche di mago Bireno.</p>
+		<p><b>Clicca sulle bolle per farle scoppiare<br>e fai cadere cinque more nel cestello.</b></p>
+		<a href="90.html"><h1 id="inizia">Inizia</h1></a></div>
+		<a href="index.html"><div id="home"></div></a>
+	</div>
+
+</body>
+</html>

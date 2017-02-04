@@ -1,0 +1,169 @@
+<html>
+    <head>
+        <script src="jquery.min.js"></script>
+
+
+        <style>
+
+        /*animation*/
+
+        @keyframes muovi {
+          0% {transform: translateY(-5px);}
+          25% {transform: translateY(0px);}
+          50% {transform: translateY(5px);}
+          75% {transform: translateY(0px);}
+          100% {transform: translateY(-5px);}
+        }
+
+        @keyframes muovi_reverse {
+          0% {transform: translateY(5px);}
+          25% {transform: translateY(0px);}
+          50% {transform: translateY(-5px);}
+          75% {transform: translateY(0px);}
+          100% {transform: translateY(5px);}
+        }
+
+        @keyframes ruota {
+          0% {transform: rotate(0deg);}
+          25% {transform: rotate(7.5deg);}
+          50% {transform: rotate(15deg);}
+          75% {transform: rotate(7.5deg);}
+          100% {transform: rotate(0deg);}
+        }
+
+        /* css */
+
+        body{
+          margin:0;
+          background-image: url("assets/simple-dashed.png");
+              background-color: #02000a;
+        }
+
+        #back {
+          background-image: url("assets/grotta.jpg");
+          background-size: cover;
+          height:750px;
+          width:1300px;
+          margin:0 auto;
+        }
+        .autore {
+          display:inline-block;
+          margin:20px;
+          width:300px;
+          height:450px;
+          text-align: center;
+          position: relative;
+        }
+
+        #due {
+        bottom: 220px;
+        text-align: left;
+        }
+
+        .contenitore {
+          margin-left: 250px;
+          margin-top: 100px;
+          position: absolute;
+          text-align:center;
+          width:800px;
+          height:500px;
+        }
+
+        p {
+          position: relative;
+          font-family: "Lato", sans-serif;
+          color: white;
+        }
+
+        p.rodari {
+          font-size: 15px;
+          line-height: 20px;
+          text-align: justify;
+        }
+
+        p.credits {
+          font-size:10px;
+          line-height: 13px;
+          text-align:left;
+        }
+
+        h1 {
+          margin-top:30px;
+          margin-left: 575px;
+          text-align: center;
+          font-family: "Berkshire swash";
+          color: #FEF6B7;
+          font-size: 50px;
+          position: absolute;
+        }
+
+        #home {
+          background-image: url("assets/home.png");
+          height:80px;
+          width: 80px;
+          background-size: cover;
+          background-position: center;;
+          position: absolute;
+          margin-top: 625px;
+          margin-left: 1170px;
+          animation: ruota 0.45s linear infinite;
+          animation-play-state: paused;
+        }
+
+        #home:hover {
+          animation-play-state: running;
+          filter: drop-shadow(0px 3px 3px white);
+        }
+
+        #line {
+          height: 420px;
+          border: 1px dotted white;
+          margin: auto;
+          position: absolute;
+          margin-left: 650px;
+          margin-top: 130px;
+        }
+
+        .oscilla {animation: muovi 3s infinite linear;}
+
+
+        </style>
+    </head>
+    <div id="back">
+      <h1>Crediti</h1>
+      <div class = "contenitore">
+
+
+        <div class = "autore">
+          <img src="assets/gianni.png" class="oscilla" height="300px">
+          <p class="rodari"><b>Mago Bireno</b> è una fiaba scritta da <b>Gianni Rodari</b> apparsa sul
+            numero 30 del "Corriere dei Piccoli" del 26 luglio 1964
+             e contenuta nella raccolta "Fiabe e fantafiabe" pubblicata nel 1994
+        ed edita da Einaudi ragazzi.</p></div>
+        <div class = "autore" id="due">
+
+
+          <p class="credits"><b>Immagini</b><br><br>
+            https://www.goodfreephotos.com/albums/united-states/wisconsin/chequamegon-national-forest/horizon-sky-and-landscape-in-chequamegon-national-forest-wisconsin.jpg
+            <br><br>
+            http://freebigpictures.com/forest-pictures/forest-edge/
+            <br><br>
+            http://wallpapersafari.com/w/zqEjgc/
+            <br><br><br>
+            <b>Modelli</b> (cespuglio di more)
+            <br><br>
+            http://archive3d.net/?a=download&id=ed435b1c
+          </p></div>
+
+
+    </div>
+    <div id="line"></div>
+    <a href="index.html"><div id="home"></div></a>
+    </div>
+
+
+    <script>
+
+    </script>
+    </body>
+</html>

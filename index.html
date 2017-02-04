@@ -1,0 +1,161 @@
+<html>
+    <head>
+        <script src="jquery.min.js"></script>
+
+        <style>
+
+        @keyframes muovi {
+          0% {transform: rotate(0deg);}
+          25% {transform: rotate(7.5deg);}
+          50% {transform: rotate(15deg);}
+          75% {transform: rotate(7.5deg);}
+          100% {transform: rotate(0deg);}
+        }
+
+
+        body{
+          margin:0;
+          background-image: url("assets/simple-dashed.png");
+              background-color: #02000a;
+        }
+
+        #back {
+          background-image: url("assets/copertina.jpg");
+          background-size: cover;
+          width: 1300px;
+          height: 750px;
+          margin:0 auto;
+        }
+
+        #title {
+          background-image: url("assets/title.png");
+          height:400px;
+          width:600px;
+          background-size: contain;
+          background-position: center;
+          position: absolute;
+          margin-top: 10px;
+          margin-left: 90px;
+        }
+
+        #inizia {
+          background-image: url("assets/inizia.png");
+          height:150px;
+          width: 150px;
+          background-size: contain;
+          background-position: center;
+          position: absolute;
+          margin-top: 370px;
+          margin-left: 470px;
+          animation: muovi 0.5s linear infinite;
+          animation-play-state: paused;
+        }
+
+        #inizia:hover {
+          animation-play-state: running;
+          filter: drop-shadow(0px 3px 3px white);
+        }
+
+        #autori {
+          background-image: url("assets/autori.png");
+          height:150px;
+          width: 150px;
+          background-size: contain;
+          background-position: center;
+          position: absolute;
+          margin-top: 400px;
+          margin-left: 290px;
+          animation: muovi 0.45s linear infinite;
+          animation-play-state: paused;
+        }
+
+        #autori:hover {
+          animation-play-state: running;
+          filter: drop-shadow(0px 3px 3px white);
+        }
+
+        #crediti {
+          background-image: url("assets/crediti.png");
+          height: 150px;
+          width: 150px;
+          background-size: contain;
+          background-position: center;
+          position: absolute;
+          margin-top: 350px;
+          margin-left: 140px;
+          animation: muovi 0.4s linear infinite;
+          animation-play-state: paused;
+        }
+
+        #crediti:hover {
+          animation-play-state: running;
+          filter: drop-shadow(0px 3px 3px white);
+        }
+
+        #poli {
+          background-image: url("assets/poli.png");
+          height:150px;
+          width:150px;
+          background-size: contain;
+          background-position: center;
+          position: absolute;
+          transform: rotate(10deg);
+          margin-top: 160px;
+          margin-left: 1115px;
+        }
+        #corso {
+          background-image: url("assets/corso.png");
+          height:200px;
+          width:200px;
+          transform: rotate(15deg);
+          background-size: contain;
+          background-position: center;
+          position: absolute;
+          transform: rotate(15deg);
+          margin-top: 8px;
+          margin-left: 1035px;
+        }
+        #docenti {
+          background-image: url("assets/docenti.png");
+          height:160px;
+          width:160px;
+          background-size: contain;
+          background-position: center;
+          transform: rotate(25deg);
+          position: absolute;
+          margin-top: 40px;
+          margin-left: 920px;
+        }
+        #progetto {
+          background-image: url("assets/progetto.png");
+          height:180px;
+          width:180px;
+          transform: rotate(-15deg);
+          background-size: contain;
+          background-position: center;
+          position: absolute;
+          margin-top: 140px;
+          margin-left: 970px;
+        }
+
+
+        </style>
+    </head>
+
+    <div id="back">
+    <div id="title"></div>
+    <a href="1.html"><div id="inizia"></div></a>
+    <a href="autori.html"><div id="autori"></div></a>
+    <a href="crediti.html"><div id="crediti"></div></a>
+    <div id="poli"></div>
+    <div id="corso"></div>
+    <div id="docenti"></div>
+    <div id="progetto"></div>
+    </div>
+
+
+    <script>
+
+    </script>
+    </body>
+</html>
